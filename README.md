@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+Wildfire Risk Map Frontend (React + TypeScript):
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+    Frontend dashboard for visualizing wildfire risk incidents on an interactive map.
+    Built with React, TypeScript, Vite, and Leaflet, and powered by a Spring Boot backend that aggregates satellite and weather data.
 
-Currently, two official plugins are available:
+#Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    This application fetches wildfire incident data from a REST API and renders each incident as a geospatial marker on a world map. Incidents are color-coded by computed wildfire risk level and update automatically as backend data refreshes.
 
-## React Compiler
+#Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+    Interactive world map built with Leaflet
 
-## Expanding the ESLint configuration
+    Real-time wildfire incident visualization
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    Color-coded risk markers:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+        Red → high risk
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+        Green → low risk
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    Popup overlays displaying risk classification
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    Fully typed React components using TypeScript
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    Clean separation between data fetching and map rendering
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+#Tech Stack
+
+    React
+
+    TypeScript
+
+    Vite
+
+    Leaflet / React-Leaflet
+
+    Fetch API for backend communication
